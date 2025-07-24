@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>🎉 Ulang Tahun One Piece Style 🎉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://wallpapercave.com/wp/wp11731070.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ffdd57;
+            text-shadow: 2px 2px 5px #000;
+        }
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+            background: url('https://media.tenor.com/LPXYFcXFzRoAAAAi/gift-present.gif') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+        }
+        #surprise {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .emoji {
+            font-size: 2em;
+            animation: bounce 0.8s infinite alternate;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50% 50% 45% 45%;
+            animation: float 5s infinite ease-in-out;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>☠️ Selamat Ulang Tahun ke-26, Errik Riskyawan! ☠️</h1>
+        <div class="gift-box" onclick="revealSurprise()"></div>
+
+        <div id="surprise">
+            <h2 class="emoji">🎈🎂💖🎉✨</h2>
+            <p style="font-size: 1.4em; text-shadow: 1px 1px 3px #000;">Semoga hidupmu penuh petualangan, cinta, dan kejutan manis seperti kru Topi Jerami!</p>
+        </div>
+    </div>
+
+    <audio id="opMusic" preload="auto">
+        <source src="https://vgmsite.com/soundtracks/one-piece-memories-best-album/ikzvhbfv/1-01%20We%20Are%21.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <script>
+        function revealSurprise() {
+            document.getElementById("surprise").style.display = "block";
+            document.getElementById("opMusic").play();
+            for (let i = 0; i < 30; i++) {{
+                let b = document.createElement("div");
+                b.className = "balloon";
+                b.style.left = Math.random() * 100 + "vw";
+                b.style.backgroundColor = ['#ff6b6b','#feca57','#48dbfb','#1dd1a1','#5f27cd'][i % 5];
+                b.style.animationDuration = 4 + Math.random() * 3 + "s";
+                b.style.opacity = Math.random();
+                b.innerHTML = "💖";
+                document.body.appendChild(b);
+                setTimeout(() => b.remove(), 7000);
+            }}
+        }
+    </script>
+</body>
+</html>
