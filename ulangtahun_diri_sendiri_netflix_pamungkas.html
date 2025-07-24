@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>🎬 Ulang Tahun Diriku 🎬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background: url('https://wallpaperaccess.com/full/2703652.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 2.8em;
+            color: #e50914;
+            text-shadow: 2px 2px 5px black;
+        }
+        p {
+            font-size: 1.3em;
+            margin-top: 20px;
+            text-shadow: 1px 1px 3px black;
+        }
+        .btn {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .message {
+            display: none;
+            font-size: 1.2em;
+            white-space: pre-wrap;
+            margin-top: 30px;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 Happy Birthday to Me 🎉</h1>
+    <p>Netflix mode: ON. Momen spesial ini adalah untuk mencintai diriku lebih dari sebelumnya.</p>
+    <button class="btn" onclick="tampilkanUcapan()">Tampilkan Ucapan 🍿</button>
+
+    <div class="message" id="pesan"></div>
+
+    <audio id="musik" preload="auto">
+        <source src="https://archive.org/download/pamungkas-tothebone-cover/Pamungkas%20-%20To%20the%20Bone%20%28Acoustic%20Version%29.mp3" type="audio/mpeg">
+        Browser tidak mendukung audio.
+    </audio>
+
+    <script>
+        const text = "Teruntuk diriku yang hebat,\n\nSelamat ulang tahun!\nTerima kasih sudah bertahan sejauh ini.\nSemoga semua impian yang aku perjuangkan menjadi nyata.\nHari ini aku rayakan hidupku — dengan cinta, tawa, dan film favorit.\n\n🎬❤️🎂";
+        let i = 0;
+
+        function tampilkanUcapan() {
+            const box = document.getElementById("pesan");
+            box.style.display = "block";
+            document.getElementById("musik").play();
+            box.innerHTML = "";
+            i = 0;
+            ketik();
+        }
+
+        function ketik() {
+            const box = document.getElementById("pesan");
+            if (i < text.length) {
+                box.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(ketik, 40);
+            }
+        }
+    </script>
+
+</body>
+</html>
